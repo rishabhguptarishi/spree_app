@@ -23,6 +23,10 @@ module SpreeApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    config.after_initialize do
+      config.spree.calculators.promotion_actions_create_item_adjustments << Spree::Calculator::VariablePercentOnLineItem
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
