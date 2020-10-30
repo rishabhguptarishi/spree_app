@@ -11,9 +11,9 @@ class Spree::Calculator::VariablePercentOnLineItem < Spree::Calculator
 
   def compute(line_item)
     price = line_item.price
-    if price > preferred_maximum_discount_on_price_greater_than
+    if price >= preferred_maximum_discount_on_price_greater_than
       (price * preferred_maximum_discount/100).round(2, half: :up)
-    elsif price > preferred_minimum_discount_on_price_greater_than
+    elsif price >= preferred_minimum_discount_on_price_greater_than
       (price * preferred_minimum_discount/100).round(2, half: :up)
     end
   end
